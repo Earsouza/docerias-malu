@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docerias Malu | Doces feitos com carinho</title>
+  <meta name="description" content="Docerias Malu: bolos de pote, brigadeiros, pipocas gourmet, cookies e salgados feitos com carinho. Peça pelo WhatsApp e veja o cardápio.">
+  <meta name="theme-color" content="#FFF5E9">
+  <!-- TROQUE pela URL final do site (ex.: https://usuario.github.io/docerias-malu/) -->
+  <link rel="canonical" href="https://SEU_USUARIO.github.io/docerias-malu/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Docerias Malu | Doces feitos com carinho">
+  <meta property="og:description" content="Bolos de pote, brigadeiros, pipocas gourmet, cookies e salgados. Peça pelo WhatsApp.">
+  <meta property="og:image" content="img/logo.png">
+
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Bakery","name":"Docerias Malu","description":"Doces feitos com carinho para tornar seus momentos especiais."}
+  </script>
+</head>
+<body>
+  <header class="hero">
+    <a class="marca" href="./" aria-label="Docerias Malu - início">
+      <img src="img/logo.png" alt="" width="60" height="44">
+      <span>Docerias Malu</span>
+    </a>
+  </header>
+
+  <main class="miolo">
+    <nav aria-label="Links principais">
+      <ul id="links" class="links"></ul>
+      <noscript><p class="aviso">Ative o JavaScript para ver os links.</p></noscript>
+    </nav>
+
+    <section class="galeria" aria-labelledby="t-galeria">
+      <div class="secao-cabecalho">
+        <p class="sobretitulo">Doces feitos com carinho</p>
+        <h1 id="t-galeria">Um convite para<br>saborear cada momento</h1>
+      </div>
+      <div id="carrossel" class="carrossel">
+        <button id="foto-anterior" class="seta-carrossel seta-anterior" type="button" aria-label="Ver foto anterior" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <div class="carrossel-janela">
+          <ul id="fotos" class="carrossel-faixa" aria-label="Fotografias dos produtos"></ul>
+        </div>
+        <button id="foto-proxima" class="seta-carrossel seta-proxima" type="button" aria-label="Ver próxima foto" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div id="indicadores-fotos" class="indicadores-fotos" aria-label="Posição das fotografias"></div>
+      <p id="galeria-vazia" class="galeria-vazia" hidden>Em breve, novas fotos dos nossos produtos.</p>
+    </section>
+
+    <section aria-labelledby="t-produtos" class="produtos-secao">
+      <div class="secao-cabecalho secao-cabecalho-produtos">
+        <p class="sobretitulo">Feitos para compartilhar</p>
+        <h2 id="t-produtos">Conheça nossos produtos</h2>
+      </div>
+      <ul id="produtos" class="produtos"></ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p class="rodape-nome">Docerias Malu</p>
+    <ul id="redes" class="redes"></ul>
+    <ul id="contatos" class="contatos"></ul>
+    <p class="copy">&copy; <span id="ano"></span> Docerias Malu. Todos os direitos reservados.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

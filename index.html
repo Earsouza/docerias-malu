@@ -1,142 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Quadro de atendimentos</title>
+  <title>Docerias Malu | Doces feitos com carinho</title>
+  <meta name="description" content="Docerias Malu: bolos de pote, brigadeiros, pipocas gourmet, cookies e salgados feitos com carinho. Peça pelo WhatsApp e veja o cardápio.">
+  <meta name="theme-color" content="#FFF5E9">
+  <!-- TROQUE pela URL final do site (ex.: https://usuario.github.io/docerias-malu/) -->
+  <link rel="canonical" href="https://SEU_USUARIO.github.io/docerias-malu/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Docerias Malu | Doces feitos com carinho">
+  <meta property="og:description" content="Bolos de pote, brigadeiros, pipocas gourmet, cookies e salgados. Peça pelo WhatsApp.">
+  <meta property="og:image" content="img/logo.png">
+
+  <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Nunito+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Bakery","name":"Docerias Malu","description":"Doces feitos com carinho para tornar seus momentos especiais."}
+  </script>
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar" id="sidebar">
-      <div class="brand"><span class="logo">K</span><strong>Atendimentos</strong></div>
-      <nav class="nav" aria-label="Navegação">
-        <button class="nav-item active" data-view="all"><svg class="ic"><use href="#i-board"/></svg>Todas as tarefas</button>
-        <button class="nav-item" data-view="open"><svg class="ic"><use href="#i-play"/></svg>Em aberto</button>
-        <button class="nav-item" data-view="high"><svg class="ic"><use href="#i-flag"/></svg>Prioridade alta</button>
-        <button class="nav-item" data-view="waiting"><svg class="ic"><use href="#i-clock"/></svg>Aguardando retorno</button>
-        <button class="nav-item" data-view="done"><svg class="ic"><use href="#i-check"/></svg>Concluídas</button>
-      </nav>
-      <div class="sidebar-foot">
-        <button class="nav-item" id="btnSeed"><svg class="ic"><use href="#i-plus"/></svg>Adicionar exemplos</button>
-        <button class="nav-item" id="btnLogout"><svg class="ic"><use href="#i-logout"/></svg>Sair</button>
-        <p class="user" id="userEmail"></p>
-      </div>
-    </aside>
-    <div class="scrim" id="scrim"></div>
+  <header class="hero">
+    <a class="marca" href="./" aria-label="Docerias Malu - início">
+      <img src="img/logo.png" alt="" width="60" height="44">
+      <span>Docerias Malu</span>
+    </a>
+  </header>
 
-    <main class="main">
-      <header class="topbar">
-        <button class="icon-btn menu-btn" id="btnMenu" aria-label="Abrir menu"><svg class="ic"><use href="#i-menu"/></svg></button>
-        <div class="title">
-          <h1>Quadro de atendimentos</h1>
-          <p id="subtitle">0 tarefas</p>
+  <main class="miolo">
+    <nav aria-label="Links principais">
+      <ul id="links" class="links"></ul>
+      <noscript><p class="aviso">Ative o JavaScript para ver os links.</p></noscript>
+    </nav>
+
+    <section class="galeria" aria-labelledby="t-galeria">
+      <div class="secao-cabecalho">
+        <p class="sobretitulo">Doces feitos com carinho</p>
+        <h1 id="t-galeria">Um convite para<br>saborear cada momento</h1>
+      </div>
+      <div id="carrossel" class="carrossel">
+        <button id="foto-anterior" class="seta-carrossel seta-anterior" type="button" aria-label="Ver foto anterior" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <div class="carrossel-janela">
+          <ul id="fotos" class="carrossel-faixa" aria-label="Fotografias dos produtos"></ul>
         </div>
-        <button class="btn primary" id="btnNew"><svg class="ic"><use href="#i-plus"/></svg><span>Nova tarefa</span></button>
-      </header>
-
-      <section class="filters" aria-label="Pesquisa e filtros">
-        <label class="search">
-          <svg class="ic"><use href="#i-search"/></svg>
-          <input type="search" id="fSearch" placeholder="Pesquisar por título, cliente ou SMS">
-        </label>
-        <select id="fPriority" aria-label="Prioridade">
-          <option value="">Todas as prioridades</option>
-          <option>Alta</option><option>Média</option><option>Baixa</option>
-        </select>
-        <select id="fClient" aria-label="Cliente"><option value="">Todos os clientes</option></select>
-        <select id="fOwner" aria-label="Responsável"><option value="">Todos os responsáveis</option></select>
-        <button class="btn ghost" id="btnClear">Limpar filtros</button>
-      </section>
-
-      <section class="board" id="board" aria-label="Quadro Kanban"></section>
-    </main>
-  </div>
-
-  <div class="login" id="login">
-    <p id="loginLoading">Conectando…</p>
-    <form id="loginForm" hidden>
-      <div class="brand"><span class="logo">K</span><strong>Atendimentos</strong></div>
-      <h2>Entrar</h2>
-      <label>E-mail<input type="email" id="lEmail" required autocomplete="username"></label>
-      <label>Senha<input type="password" id="lPassword" required autocomplete="current-password"></label>
-      <p class="error" id="loginError" role="alert"></p>
-      <button type="submit" class="btn primary">Entrar</button>
-      <button type="button" class="btn ghost" id="btnForgot">Esqueci minha senha</button>
-    </form>
-  </div>
-
-  <dialog id="modal">
-    <form id="form" method="dialog" autocomplete="off">
-      <header class="modal-head">
-        <h2 id="modalTitle">Nova tarefa</h2>
-        <button type="button" class="icon-btn" id="btnClose" aria-label="Fechar"><svg class="ic"><use href="#i-x"/></svg></button>
-      </header>
-      <div class="modal-body">
-        <label class="full">Título
-          <input id="mTitle" required maxlength="120" placeholder="Resumo da demanda">
-        </label>
-        <label>Cliente
-          <input id="mClient" required list="dlClients" placeholder="Nome do cliente">
-        </label>
-        <label>SMS
-          <input id="mSms" placeholder="Ex.: SMS-1024">
-        </label>
-        <label>Responsável
-          <input id="mOwner" list="dlOwners" placeholder="Quem vai atender">
-        </label>
-        <label>Categoria
-          <input id="mCategory" list="dlCategories" placeholder="Ex.: Suporte">
-        </label>
-        <label>Prioridade
-          <select id="mPriority"><option>Baixa</option><option selected>Média</option><option>Alta</option></select>
-        </label>
-        <label>Coluna
-          <select id="mStatus"></select>
-        </label>
-        <label class="full">Descrição
-          <textarea id="mDesc" rows="5" placeholder="Detalhe a atividade ou o problema"></textarea>
-        </label>
-        <p class="created full" id="mCreated"></p>
+        <button id="foto-proxima" class="seta-carrossel seta-proxima" type="button" aria-label="Ver próxima foto" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
       </div>
-      <footer class="modal-foot">
-        <button type="button" class="btn danger" id="btnDelete"><svg class="ic"><use href="#i-trash"/></svg>Excluir</button>
-        <span class="spacer"></span>
-        <button type="button" class="btn ghost" id="btnCancel">Cancelar</button>
-        <button type="submit" class="btn primary">Salvar</button>
-      </footer>
-    </form>
-  </dialog>
-  <datalist id="dlClients"></datalist>
-  <datalist id="dlOwners"></datalist>
-  <datalist id="dlCategories"></datalist>
-  <div class="toast" id="toast" role="status"></div>
+      <div id="indicadores-fotos" class="indicadores-fotos" aria-label="Posição das fotografias"></div>
+      <p id="galeria-vazia" class="galeria-vazia" hidden>Em breve, novas fotos dos nossos produtos.</p>
+    </section>
 
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <symbol id="i-board" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="18" rx="2"/><rect x="14" y="3" width="7" height="11" rx="2"/></symbol>
-      <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></symbol>
-      <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 0h11l-2 4 2 4H5"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
-      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></symbol>
-      <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></symbol>
-      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
-      <symbol id="i-building" viewBox="0 0 24 24"><path d="M5 21V4h9v17M14 9h5v12M3 21h18M8.5 8h2M8.5 12h2M8.5 16h2"/></symbol>
-      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></symbol>
-      <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1"/></symbol>
-    </defs>
-  </svg>
+    <section aria-labelledby="t-produtos" class="produtos-secao">
+      <div class="secao-cabecalho secao-cabecalho-produtos">
+        <p class="sobretitulo">Feitos para compartilhar</p>
+        <h2 id="t-produtos">Conheça nossos produtos</h2>
+      </div>
+      <ul id="produtos" class="produtos"></ul>
+    </section>
+  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
-  <script src="firebase-config.js"></script>
-  <script type="module" src="app.js"></script>
+  <footer class="rodape">
+    <p class="rodape-nome">Docerias Malu</p>
+    <ul id="redes" class="redes"></ul>
+    <ul id="contatos" class="contatos"></ul>
+    <p class="copy">&copy; <span id="ano"></span> Docerias Malu. Todos os direitos reservados.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

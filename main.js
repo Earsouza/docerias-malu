@@ -14,6 +14,8 @@
   var zap = "https://wa.me/" + CONFIG.whatsappNumero + "?text=" + encodeURIComponent(CONFIG.whatsappMensagem);
   var insta = "https://instagram.com/" + CONFIG.instagramUsuario;
   var ifood = "https://www.ifood.com.br/delivery/blumenau-sc/doceria-da-malu-progresso/77fa32c3-b811-42ac-bcbc-3e3967e697ef?UTM_Medium=share";
+
+  
   var cardapio = pendente(CONFIG.cardapioUrl)
     ? "https://wa.me/" + CONFIG.whatsappNumero + "?text=" + encodeURIComponent("Olá, Malu! Gostaria de ver o cardápio.")
     : CONFIG.cardapioUrl;

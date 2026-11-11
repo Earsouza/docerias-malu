@@ -1,15 +1,9 @@
-# Docerias Malu — central de links
+# 🍓 Docerias da Malu
 
-Site estático (HTML, CSS e JS puros), pronto para GitHub Pages.
+Site oficial da **Docerias da Malu**. Conheça nossos produtos, confira o cardápio e tenha acesso aos nossos canais de atendimento.
 
-## Como editar
-- **Links, contatos e produtos:** `config.js` (campos com `SEU_` ou vazios aparecem como "pendentes").
-- **Foto de destaque:** substitua `destaque.svg` por uma foto (ex.: `destaque.jpg`, 800x1000, até 150 KB, formato JPG/WebP) e ajuste o `src` e o `og:image` em `index.html`.
-- **Fotos dos produtos:** coloque os arquivos na pasta `img/` e informe o caminho (ex.: `img/bolo-de-pote.jpg`) em `imagem` no `config.js`.
-- **SEO:** troque `SEU_USUARIO` pela URL real em `canonical` e atualize `og:image` no `index.html` (padrão: `img/logo.png`).
-- **Cores:** variáveis no início de `style.css`.
+🌐 **Site:** [Acesse aqui](https://earsouza.github.io/docerias-malu/)
 
-## Publicar no GitHub Pages
-1. Envie a pasta para um repositório no GitHub.
-2. Em *Settings → Pages*, escolha *Deploy from a branch*, branch `main`, pasta `/ (root)`.
-3. O site ficará em `https://SEU_USUARIO.github.io/NOME-DO-REPOSITORIO/`. Todos os caminhos são relativos.
+📸 **Instagram:** [@doceriasmaluu](https://www.instagram.com/doceriasmaluu/)
+
+💗 Feito com carinho, para adoçar seus momentos!

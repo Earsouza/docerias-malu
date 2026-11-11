@@ -5,7 +5,7 @@
    ========================================================== */
 const CONFIG = {
   // WhatsApp: código do país + DDD + número, só dígitos. Ex.: 5511999999999
-  whatsappNumero: "55479889285321",
+  whatsappNumero: "5547989285321",
   whatsappMensagem: "Olá, Malu! Vim pelo Instagram e gostaria de fazer um pedido.",
 
   instagramUsuario: "doceriasmaluu",      // sem @
